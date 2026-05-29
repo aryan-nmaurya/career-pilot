@@ -223,6 +223,17 @@ export default function TemplateGallery() {
       image: "/template-previews/Creative-Dashboard.png",
       createdAt: "2026-05-15",
     },
+    {
+  id: 999,
+  title: "Digital DNA",
+  category: "Portfolio",
+  colorScheme: "Dark",
+  layout: "Modern",
+  author: "jainiksha patel",
+  views: 2504,
+  rating: 4.5,
+  premium: false
+},
   ];
 
   const [category, setCategory] = useState("All");
@@ -324,15 +335,16 @@ export default function TemplateGallery() {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {sortedTemplates.map((template) => (
-            <TemplateCard
-              key={template.id}
-              template={template}
-              onUse={(title) => {
-                setSelectedPortfolioTitle(title);
-                setIsDeployModalOpen(true);
-              }}
-            />
-          ))}
+  <TemplateCard
+    key={template.id}
+    template={template}
+    onUse={() => {
+      setSelectedTheme(template.id);
+      setSelectedPortfolioTitle(template.title);
+      setIsDeployModalOpen(true);
+    }}
+  />
+))}
         </div>
       )}
 
