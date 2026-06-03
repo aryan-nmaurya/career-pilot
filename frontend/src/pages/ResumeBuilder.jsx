@@ -9,6 +9,7 @@ import { resumeApi } from '../services/api'
 import { toast } from 'react-hot-toast'
 import { cn } from '@/lib/utils'
 import PhoneInput from '../components/PhoneInput'
+import ResumeSuggestionsPanel from '../components/ResumeSuggestionsPanel'
 import {
   validatePersonalStep,
   validateEducationStep,
@@ -764,6 +765,17 @@ export default function ResumeBuilder() {
             </motion.div>
           </AnimatePresence>
         </div>
+
+        {/* AI-Powered Resume Improvement Suggestions */}
+        <ResumeSuggestionsPanel
+          personal={personal}
+          education={education}
+          experience={experience}
+          projects={projects}
+          skills={skills}
+          targetRole={targetRole}
+          getResumeText={generateMarkdown}
+        />
 
         {/* Navigation Actions */}
         <div className="mt-8 flex justify-between items-center">
